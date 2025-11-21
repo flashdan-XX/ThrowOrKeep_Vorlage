@@ -25,6 +25,29 @@ public class MainController {
      */
     public void startProgram() {
         //TODO: Implementiere die Methode gemäß des Kommentars
+        Stack <Card> stackOrigin = new Stack<>();
+        Stack<Card> stackKeep = new Stack<>();
+
+        //Will das mit einer Schleife probieren
+
+        Card card1 = new Card((int) Math.random());
+        Card card2 = new Card((int) Math.random());
+        Card card3 = new Card((int) Math.random());
+        Card card4 = new Card((int) Math.random());
+        Card card5 = new Card((int) Math.random());
+        Card card6 = new Card((int) Math.random());
+        Card card7 = new Card((int) Math.random());
+        Card card8 = new Card((int) Math.random());
+
+       stackOrigin.push(card1);
+       stackOrigin.push(card2);
+       stackOrigin.push(card3);
+       stackOrigin.push(card4);
+       stackOrigin.push(card5);
+       stackOrigin.push(card6);
+       stackOrigin.push(card7);
+       stackOrigin.push(card8);
+
     }
 
     /**
