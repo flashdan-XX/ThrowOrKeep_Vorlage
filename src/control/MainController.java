@@ -25,19 +25,19 @@ public class MainController {
      */
     public void startProgram() {
         //TODO: Implementiere die Methode gemäß des Kommentars
-        Stack <Card> stackOrigin = new Stack<>();
-        Stack<Card> stackKeep = new Stack<>();
+        stackOrigin = new Stack<>();
+        stackKeep = new Stack<>();
 
         //Will das mit einer Schleife probieren
 
-        Card card1 = new Card((int) Math.random());
-        Card card2 = new Card((int) Math.random());
-        Card card3 = new Card((int) Math.random());
-        Card card4 = new Card((int) Math.random());
-        Card card5 = new Card((int) Math.random());
-        Card card6 = new Card((int) Math.random());
-        Card card7 = new Card((int) Math.random());
-        Card card8 = new Card((int) Math.random());
+        Card card1 = new Card((int) Math.random()*21);
+        Card card2 = new Card((int) Math.random()*21);
+        Card card3 = new Card((int) Math.random()*21);
+        Card card4 = new Card((int) Math.random()*21);
+        Card card5 = new Card((int) Math.random()*21);
+        Card card6 = new Card((int) Math.random()*21);
+        Card card7 = new Card((int) Math.random()*21);
+        Card card8 = new Card((int) Math.random()*21);
 
        stackOrigin.push(card1);
        stackOrigin.push(card2);
@@ -56,6 +56,9 @@ public class MainController {
      */
     public int showNextCard() {
         //TODO: Implementiere die Methode gemäß des Kommentars
+        if(!cardStackEmpty()) {
+            return stackOrigin.top().getWert();
+        }
         return -1;
     }
 
@@ -65,7 +68,13 @@ public class MainController {
      */
     public boolean keep() {
         //TODO: Implementiere die Methode gemäß des Kommentars
-        return false;
+        if(!stackOrigin.isEmpty()) {
+            stackKeep.push(stackOrigin.top());
+            stackOrigin.pop();
+            return true;
+        }else {
+            return false;
+        }
     }
 
     /**
@@ -74,6 +83,10 @@ public class MainController {
      */
     public boolean throwCard() {
         //TODO: Implementiere die Methode gemäß des Kommentars
+        if(!cardStackEmpty()) {
+            stackOrigin.pop();
+            return true;
+        }
         return false;
     }
 
@@ -84,6 +97,14 @@ public class MainController {
      */
     public int inspect() {
         //TODO: Implementiere die Methode gemäß des Kommentars
+        if(keepCorrect()) {
+            int count = 0;
+            while (!stackKeep.isEmpty()) {
+                stackKeep.pop();
+                count++;
+            }
+            return count;
+        }
         return -1;
     }
 

@@ -1,7 +1,6 @@
 package view;
 
 import control.MainController;
-import javafx.scene.text.Text;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

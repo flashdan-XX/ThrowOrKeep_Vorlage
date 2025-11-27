@@ -85,11 +85,7 @@ public class Stack <ContentType> {
      */
     public boolean isEmpty() {
         //TODO 4: Implementiere die Methode wie im Kommentar beschrieben
-        if (head == null) {
-            return true;
-        }else {
-            return false;
-        }
+        return head==null;
     }
 
     /**
@@ -101,8 +97,10 @@ public class Stack <ContentType> {
      */
     public void push(ContentType pContent) {
         //TODO 5: Implementiere die Methode push(). Wenn pContent nicht null ist, wird das Objekt auf den Stapel gelegt
-        if (isEmpty()) {
-            head = new StackNode(pContent);
+        if(pContent!=null) {
+            StackNode newNode = new StackNode(pContent);
+            newNode.setNext(this.head);
+            this.head = newNode;
         }
     }
 
